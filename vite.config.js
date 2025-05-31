@@ -11,5 +11,12 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['firebase/app', 'firebase/firestore']
+  },
+  build: {
+    rollupOptions: {
+      external: []
+      // OU
+      // external: ['firebase'] (mas melhor deixar vazio pra não externalizar)
+    }
   }
 })
