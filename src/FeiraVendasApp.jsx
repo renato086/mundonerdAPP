@@ -7,7 +7,6 @@ import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@
 import { Plus, Trash } from 'lucide-react';
 import logo from "./assets/logo.png";
 import { db } from "./firebase";
-import { initializeApp } from "firebase/app";
 import { collection, addDoc, deleteDoc, doc, onSnapshot } from "firebase/firestore";
 
 export default function FeiraVendasApp() {
