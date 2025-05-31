@@ -51,7 +51,7 @@ export default function FeiraVendasApp() {
      <img src={logo} alt="Logo Mundo Nerd" className="h-[60px] w-auto max-w-[160px] object-contain" />
     </div>
       <div className="max-w-3xl mx-auto bg-white/80 rounded-xl p-4 shadow-md">
-        <h1 className="text-2xl font-bold mb-4">🚀Mundo Nerd br🚀</h1>
+        <h1 className="text-2xl font-bold mb-4">🚀VENDAS🚀</h1>
 
         <Card className="mb-4">
           <CardContent className="p-4 grid grid-cols-1 md:grid-cols-5 gap-2">
