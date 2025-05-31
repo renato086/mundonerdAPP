@@ -50,10 +50,6 @@ export default function FeiraVendasApp() {
     <div className="flex justify-center mb-4">
       <img src={logo} alt="Logo Mundo Nerd" className="h-20" />
     </div>
-  //   <div
-     // className="min-h-screen bg-cover bg-center bg-no-repeat p-4"
-      // style={{ backgroundImage: `url(${logo})`, opacity: 0.5 }}
- //   >
       <div className="max-w-3xl mx-auto bg-white/80 rounded-xl p-4 shadow-md">
         <h1 className="text-2xl font-bold mb-4">🚀Mundo Nerd br🚀</h1>
 
@@ -111,7 +107,6 @@ export default function FeiraVendasApp() {
             </div>
           </CardContent>
         </Card>
-  //    </div>
     </div>
   );
 }
