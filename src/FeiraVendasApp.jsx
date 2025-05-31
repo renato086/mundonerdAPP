@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { Plus, Trash } from 'lucide-react';
-import logo from "./assets/logo.png"; // ✅ Importa o logo
+import logo from "./assets/logo.png";
 
 export default function FeiraVendasApp() {
   const [produto, setProduto] = useState('');
@@ -38,18 +38,27 @@ export default function FeiraVendasApp() {
 
   return (
     <div className="relative min-h-screen p-4 bg-gray-100 flex items-center justify-center">
-      {/* Fundo com logo, 70% transparência */}
+      {/* Fundo com logo */}
       <div
-        className="absolute inset-0 bg-no-repeat bg-center bg-contain opacity-70 pointer-events-none"
+        className="
+          absolute inset-0
+          bg-no-repeat bg-center
+          opacity-70 pointer-events-none
+          bg-contain
+          sm:bg-contain
+          md:bg-[length:50%]
+          lg:bg-[length:40%]
+          xl:bg-[length:30%]
+        "
         style={{ backgroundImage: `url(${logo})` }}
       />
 
-      {/* Conteúdo em z-index acima do fundo */}
-      <div className="relative max-w-3xl w-full bg-white/90 rounded-xl p-4 shadow-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">Controle de Vendas - MUNDO NERD br</h1>
+      {/* Conteúdo */}
+      <div className="relative max-w-4xl w-full bg-white/90 rounded-xl p-6 shadow-md">
+        <h1 className="text-2xl font-bold mb-6 text-center">🚀MUNDO NERD br🚀</h1>
 
-        <Card className="mb-4">
-          <CardContent className="p-4 grid grid-cols-1 md:grid-cols-5 gap-2">
+        <Card className="mb-6">
+          <CardContent className="p-4 grid grid-cols-1 md:grid-cols-5 gap-3">
             <Input placeholder="Produto" value={produto} onChange={e => setProduto(e.target.value)} />
             <Input placeholder="Preço" type="number" value={preco} onChange={e => setPreco(e.target.value)} />
             <Input placeholder="Quantidade" type="number" value={quantidade} onChange={e => setQuantidade(e.target.value)} />
@@ -58,12 +67,14 @@ export default function FeiraVendasApp() {
               <SelectItem value="dinheiro">Dinheiro</SelectItem>
               <SelectItem value="cartao">Cartão</SelectItem>
             </Select>
-            <Button onClick={adicionarVenda}><Plus className="w-4 h-4 mr-2" />Adicionar</Button>
+            <Button onClick={adicionarVenda} className="flex items-center justify-center">
+              <Plus className="w-4 h-4 mr-2" />Adicionar
+            </Button>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4">
+          <CardContent className="p-4 overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -97,7 +108,7 @@ export default function FeiraVendasApp() {
                 )}
               </TableBody>
             </Table>
-            <div className="text-right mt-4 font-bold">
+            <div className="text-right mt-4 font-bold text-lg">
               Total Geral: R$ {totalGeral.toFixed(2)}
             </div>
           </CardContent>
