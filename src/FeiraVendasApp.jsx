@@ -46,8 +46,12 @@ export default function FeiraVendasApp() {
   const totalGeral = vendas.reduce((soma, v) => soma + v.total, 0);
 
   return (
+    <div className="min-h-screen bg-gray-100 p-4">
+    <div className="flex justify-center mb-4">
+      <img src={logo} alt="Logo Mundo Nerd" className="h-20" />
+    </div>
      <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat p-4"
+     // className="min-h-screen bg-cover bg-center bg-no-repeat p-4"
       // style={{ backgroundImage: `url(${logo})`, opacity: 0.5 }}
     >
       <div className="max-w-3xl mx-auto bg-white/80 rounded-xl p-4 shadow-md">
