@@ -6,8 +6,8 @@ import { Select, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { Plus, Trash } from 'lucide-react';
 import logo from "./assets/logo.png";
-import { initializeApp } from "firebase/app";
 import { db } from "./firebase";
+import { initializeApp } from "firebase/app";
 import { collection, addDoc, deleteDoc, doc, onSnapshot } from "firebase/firestore";
 
 export default function FeiraVendasApp() {
