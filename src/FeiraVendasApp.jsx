@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { Plus, Trash } from 'lucide-react';
-import logo from './assets/logo.png'; // ajuste o caminho se estiver em outra pasta
+import logo from "./assets/logo.png"; // ✅ Importa o logo
 
 export default function FeiraVendasApp() {
   const [produto, setProduto] = useState('');
@@ -37,23 +37,11 @@ export default function FeiraVendasApp() {
   const totalGeral = vendas.reduce((soma, v) => soma + v.total, 0);
 
   return (
-    <div className="relative p-4 max-w-3xl mx-auto">
-      {/* Marca d'água com o logo */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `url(${logo})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: 'contain',
-          opacity: 0.05,
-          pointerEvents: 'none',
-          zIndex: 0
-        }}
-      />
-
-      {/* Conteúdo principal com zIndex 1 para ficar acima do fundo */}
-      <div style={{ position: 'relative', zIndex: 1 }}>
+    <div
+      className="min-h-screen bg-cover bg-center bg-no-repeat p-4"
+      style={{ backgroundImage: `url(${logo})` }}
+    >
+      <div className="max-w-3xl mx-auto bg-white/80 rounded-xl p-4 shadow-md">
         <h1 className="text-2xl font-bold mb-4">Controle de Vendas - MUNDO NERD br</h1>
 
         <Card className="mb-4">
