@@ -44,4 +44,55 @@ export default function FeiraVendasApp() {
           <Input placeholder="Produto" value={produto} onChange={e => setProduto(e.target.value)} />
           <Input placeholder="Preço" type="number" value={preco} onChange={e => setPreco(e.target.value)} />
           <Input placeholder="Quantidade" type="number" value={quantidade} onChange={e => setQuantidade(e.target.value)} />
-          <Select value={pagamento} onValueChange={setPagamento}
+          <Select value={pagamento} onValueChange={setPagamento}>
+            <SelectItem value="pix">Pix</SelectItem>
+            <SelectItem value="dinheiro">Dinheiro</SelectItem>
+            <SelectItem value="cartao">Cartão</SelectItem>
+          </Select>
+          <Button onClick={adicionarVenda}><Plus className="w-4 h-4 mr-2" />Adicionar</Button>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardContent className="p-4">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Produto</TableHead>
+                <TableHead>Preço</TableHead>
+                <TableHead>Qtd</TableHead>
+                <TableHead>Pagamento</TableHead>
+                <TableHead>Total</TableHead>
+                <TableHead>Ações</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {vendas.map(v => (
+                <TableRow key={v.id}>
+                  <TableCell>{v.produto}</TableCell>
+                  <TableCell>R$ {v.preco.toFixed(2)}</TableCell>
+                  <TableCell>{v.quantidade}</TableCell>
+                  <TableCell>{v.pagamento}</TableCell>
+                  <TableCell>R$ {v.total.toFixed(2)}</TableCell>
+                  <TableCell>
+                    <Button variant="destructive" size="sm" onClick={() => removerVenda(v.id)}>
+                      <Trash className="w-4 h-4" />
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+              {vendas.length === 0 && (
+                <TableRow>
+                  <TableCell colSpan={6} className="text-center text-gray-400">Nenhuma venda registrada.</TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+          <div className="text-right mt-4 font-bold">
+            Total Geral: R$ {totalGeral.toFixed(2)}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
