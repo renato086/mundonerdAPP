@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import { Select, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { Plus, Trash } from 'lucide-react';
 
@@ -44,47 +44,4 @@ export default function FeiraVendasApp() {
           <Input placeholder="Produto" value={produto} onChange={e => setProduto(e.target.value)} />
           <Input placeholder="Preço" type="number" value={preco} onChange={e => setPreco(e.target.value)} />
           <Input placeholder="Quantidade" type="number" value={quantidade} onChange={e => setQuantidade(e.target.value)} />
-          <Select value={pagamento} onValueChange={setPagamento}>
-            <SelectTrigger><SelectValue /></SelectTrigger>
-            <SelectContent>
-              <SelectItem value="pix">Pix</SelectItem>
-              <SelectItem value="dinheiro">Dinheiro</SelectItem>
-              <SelectItem value="cartao">Cartão</SelectItem>
-            </SelectContent>
-          </Select>
-          <Button onClick={adicionarVenda}><Plus className="w-4 h-4 mr-1" /> Adicionar</Button>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardContent className="p-4">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Produto</TableHead>
-                <TableHead>Qtd</TableHead>
-                <TableHead>Preço</TableHead>
-                <TableHead>Pagamento</TableHead>
-                <TableHead>Total</TableHead>
-                <TableHead>Ações</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {vendas.map(v => (
-                <TableRow key={v.id}>
-                  <TableCell>{v.produto}</TableCell>
-                  <TableCell>{v.quantidade}</TableCell>
-                  <TableCell>R$ {v.preco.toFixed(2)}</TableCell>
-                  <TableCell>{v.pagamento}</TableCell>
-                  <TableCell className="font-bold">R$ {v.total.toFixed(2)}</TableCell>
-                  <TableCell><Button variant="ghost" size="icon" onClick={() => removerVenda(v.id)}><Trash className="w-4 h-4" /></Button></TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-          <div className="text-right font-bold mt-4">Total Geral: R$ {totalGeral.toFixed(2)}</div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
+          <Select value={pagamento} onValueChange={setPagamento}
