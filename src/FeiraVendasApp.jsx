@@ -37,7 +37,7 @@ export default function FeiraVendasApp() {
 
   return (
     <div className="p-4 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Controle de Vendas - Feira</h1>
+      <h1 className="text-2xl font-bold mb-4">Controle de Vendas - MUNDO NERD br</h1>
 
       <Card className="mb-4">
         <CardContent className="p-4 grid grid-cols-1 md:grid-cols-5 gap-2">
