@@ -1,3 +1,4 @@
+// src/firebase.js
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
@@ -10,10 +11,7 @@ const firebaseConfig = {
   appId: "1:507296290570:web:6ad22a11d99055cb124cf3"
 };
 
-// Inicializa o Firebase
 const app = initializeApp(firebaseConfig);
-
-// Inicializa Firestore
 const db = getFirestore(app);
 
 export { db };
