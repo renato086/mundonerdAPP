@@ -1,9 +1,8 @@
-
-// Import the functions you need from the SDKs you need
+// src/firebase.js
 import { initializeApp } from "firebase/app";
-// Add additional Firebase SDKs as needed (e.g., Firestore, Auth)
+import { getFirestore } from "firebase/firestore"; // Caso use Firestore
+import { getDatabase } from "firebase/database"; // Caso use Realtime Database
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBx7degWRAyjKoey5vrsKXDeMD4EXegWcc",
   authDomain: "mundonerd-app.firebaseapp.com",
@@ -13,6 +12,11 @@ const firebaseConfig = {
   appId: "1:507296290570:web:6ad22a11d99055cb124cf3"
 };
 
-// Initialize Firebase
+// Inicializa o app
 const app = initializeApp(firebaseConfig);
-export default app;
+
+// Exporte o Firestore e/ou Realtime Database
+const db = getFirestore(app); // Firestore
+const rtdb = getDatabase(app); // Realtime Database
+
+export { db, rtdb };
