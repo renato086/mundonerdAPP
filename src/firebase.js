@@ -1,7 +1,6 @@
 // src/firebase.js
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore"; // Caso use Firestore
-import { getDatabase } from "firebase/database"; // Caso use Realtime Database
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBx7degWRAyjKoey5vrsKXDeMD4EXegWcc",
@@ -12,11 +11,7 @@ const firebaseConfig = {
   appId: "1:507296290570:web:6ad22a11d99055cb124cf3"
 };
 
-// Inicializa o app
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-// Exporte o Firestore e/ou Realtime Database
-const db = getFirestore(app); // Firestore
-const rtdb = getDatabase(app); // Realtime Database
-
-export { db, rtdb };
+export { db };
