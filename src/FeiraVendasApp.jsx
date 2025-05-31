@@ -107,6 +107,7 @@ export default function FeiraVendasApp() {
             </div>
           </CardContent>
         </Card>
+      </div>
     </div>
   );
 }
