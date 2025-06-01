@@ -7,7 +7,7 @@ import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@
 import { Plus, Trash } from 'lucide-react';
 import logo from "./assets/logo.png";
 import { db } from "./firebase.js";
-import { collection, addDoc, deleteDoc, doc, onSnapshot } from "firebase/firestore";
+import { collection, addDoc, deleteDoc, doc, onSnapshot, serverTimestamp, query, orderBy } from "firebase/firestore";
 
 export default function FeiraVendasApp() {
   const [produto, setProduto] = useState('');
@@ -17,7 +17,8 @@ export default function FeiraVendasApp() {
   const [vendas, setVendas] = useState([]);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, "vendas"), snapshot => {
+    const q = query(collection(db, "vendas"), orderBy("timestamp", "asc"));
+    const unsubscribe = onSnapshot(q, snapshot => {
       const dados = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setVendas(dados);
     });
@@ -31,7 +32,8 @@ export default function FeiraVendasApp() {
       preco: parseFloat(preco),
       quantidade: parseInt(quantidade),
       total: parseFloat(preco) * parseInt(quantidade),
-      pagamento
+      pagamento,
+      timestamp: serverTimestamp()
     };
     await addDoc(collection(db, "vendas"), novaVenda);
     setProduto('');
@@ -47,9 +49,9 @@ export default function FeiraVendasApp() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-4">
-    <div className="flex justify-center mb-4">
-     <img src={logo} alt="Logo Mundo Nerd" className="h-[60px] w-auto max-w-[160px] object-contain" />
-    </div>
+      <div className="flex justify-center mb-4">
+        <img src={logo} alt="Logo Mundo Nerd" className="h-[60px] w-auto max-w-[160px] object-contain" />
+      </div>
       <div className="max-w-3xl mx-auto bg-white/80 rounded-xl p-4 shadow-md">
         <h1 className="text-2xl font-bold mb-4">🚀VENDAS🚀</h1>
 
