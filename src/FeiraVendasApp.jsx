@@ -50,15 +50,17 @@ export default function FeiraVendasApp() {
   return (
     <div className="min-h-screen bg-gray-100 p-4">
       <div className="flex justify-center mb-4">
-        <img src={logo} alt="Logo Mundo Nerd" className="h-[60px] w-auto max-w-[160px] object-contain" />
+        <img src={logo} alt="Logo Mundo Nerd" className="h-[60px] w-auto object-contain" />
       </div>
 
-      <div className="max-w-3xl mx-auto bg-white/80 rounded-xl p-4 shadow-md space-y-6">
-        <h1 className="text-2xl font-bold text-center">🚀 VENDAS 🚀</h1>
+      {/* Container branco separado */}
+      <div className="max-w-3xl mx-auto bg-white rounded-xl p-6 shadow-lg space-y-6">
+        <h1 className="text-3xl font-bold text-center">🚀 VENDAS 🚀</h1>
 
+        {/* Formulário de Vendas */}
         <Card>
           <CardContent className="p-4 space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
               <Input
                 placeholder="Produto"
                 value={produto}
@@ -98,6 +100,7 @@ export default function FeiraVendasApp() {
           </CardContent>
         </Card>
 
+        {/* Tabela de Vendas */}
         <Card>
           <CardContent className="p-4 overflow-x-auto">
             <Table>
@@ -135,8 +138,7 @@ export default function FeiraVendasApp() {
                 )}
               </TableBody>
             </Table>
-
-            <div className="text-right mt-4 font-bold">
+            <div className="text-right mt-4 font-bold text-lg">
               Total Geral: R$ {totalGeral.toFixed(2)}
             </div>
           </CardContent>
