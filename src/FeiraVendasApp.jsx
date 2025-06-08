@@ -49,11 +49,12 @@ export default function FeiraVendasApp() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-4">
-      <div className="flex justify-center mb-4">
+      {/* Logo no topo, separado do container */}
+      <div className="flex justify-center mb-6">
         <img src={logo} alt="Logo Mundo Nerd" className="h-[60px] w-auto object-contain" />
       </div>
 
-      {/* Container branco separado */}
+      {/* Container branco centralizado, estilo igual ao Controle de Pedidos */}
       <div className="max-w-3xl mx-auto bg-white rounded-xl p-6 shadow-lg space-y-6">
         <h1 className="text-3xl font-bold text-center">🚀 VENDAS 🚀</h1>
 
