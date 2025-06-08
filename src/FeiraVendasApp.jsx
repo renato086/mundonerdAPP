@@ -52,46 +52,49 @@ export default function FeiraVendasApp() {
       <div className="flex justify-center mb-4">
         <img src={logo} alt="Logo Mundo Nerd" className="h-[60px] w-auto max-w-[160px] object-contain" />
       </div>
+
       <div className="max-w-3xl mx-auto bg-white/80 rounded-xl p-4 shadow-md space-y-6">
         <h1 className="text-2xl font-bold text-center">🚀 VENDAS 🚀</h1>
 
         <Card>
-          <CardContent className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2">
-            <Input
-              placeholder="Produto"
-              value={produto}
-              onChange={e => setProduto(e.target.value)}
-              className="w-full"
-            />
-            <Input
-              placeholder="Preço"
-              type="number"
-              value={preco}
-              onChange={e => setPreco(e.target.value)}
-              className="w-full"
-            />
-            <Input
-              placeholder="Quantidade"
-              type="number"
-              value={quantidade}
-              onChange={e => setQuantidade(e.target.value)}
-              className="w-full"
-            />
-            <Select
-              value={pagamento}
-              onValueChange={setPagamento}
-              className="w-full"
-            >
-              <SelectItem value="pix">Pix</SelectItem>
-              <SelectItem value="dinheiro">Dinheiro</SelectItem>
-              <SelectItem value="cartao">Cartão</SelectItem>
-            </Select>
-            <Button
-              onClick={adicionarVenda}
-              className="col-span-1 sm:col-span-2 md:col-auto"
-            >
-              <Plus className="w-4 h-4 mr-2" />Adicionar
-            </Button>
+          <CardContent className="p-4 space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2">
+              <Input
+                placeholder="Produto"
+                value={produto}
+                onChange={e => setProduto(e.target.value)}
+                className="w-full"
+              />
+              <Input
+                placeholder="Preço"
+                type="number"
+                value={preco}
+                onChange={e => setPreco(e.target.value)}
+                className="w-full"
+              />
+              <Input
+                placeholder="Quantidade"
+                type="number"
+                value={quantidade}
+                onChange={e => setQuantidade(e.target.value)}
+                className="w-full"
+              />
+              <Select
+                value={pagamento}
+                onValueChange={setPagamento}
+                className="w-full"
+              >
+                <SelectItem value="pix">Pix</SelectItem>
+                <SelectItem value="dinheiro">Dinheiro</SelectItem>
+                <SelectItem value="cartao">Cartão</SelectItem>
+              </Select>
+              <Button
+                onClick={adicionarVenda}
+                className="flex items-center justify-center sm:justify-start"
+              >
+                <Plus className="w-4 h-4 mr-1" />Adicionar
+              </Button>
+            </div>
           </CardContent>
         </Card>
 
@@ -132,6 +135,7 @@ export default function FeiraVendasApp() {
                 )}
               </TableBody>
             </Table>
+
             <div className="text-right mt-4 font-bold">
               Total Geral: R$ {totalGeral.toFixed(2)}
             </div>
